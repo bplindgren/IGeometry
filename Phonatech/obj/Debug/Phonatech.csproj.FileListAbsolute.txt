@@ -1,0 +1,6 @@
+S:\IGeometry\Phonatech\Code\Phonatech\Phonatech\bin\Debug\Phonatech.dll
+S:\IGeometry\Phonatech\Code\Phonatech\Phonatech\bin\Debug\Phonatech.pdb
+S:\IGeometry\Phonatech\Code\Phonatech\Phonatech\obj\Debug\Phonatech.dll
+S:\IGeometry\Phonatech\Code\Phonatech\Phonatech\obj\Debug\Phonatech.pdb
+S:\IGeometry\Phonatech\Code\Phonatech\Phonatech\obj\Debug\Phonatech.csprojResolveAssemblyReference.cache
+S:\IGeometry\Phonatech\Code\Phonatech\Phonatech\bin\Debug\Phonatech.esriAddIn
