@@ -25,29 +25,34 @@ namespace Phonatech
 
         protected override void OnMouseUp(MouseEventArgs arg)
         {
-   
-            int x = arg.X;
-            int y = arg.Y;
-
-            IMxDocument pMxdoc = (IMxDocument) ArcMap.Application.Document;
-
-            IFeatureLayer pfeaturelayer = (IFeatureLayer) pMxdoc.ActiveView.FocusMap.Layer[0];
-            IDataset pDS = (IDataset) pfeaturelayer.FeatureClass;
-            TowerManager tm = new TowerManager(pDS.Workspace);
-
-            // THIS IS HOW YOU CREATE A POINT
-            IPoint pPoint = pMxdoc.ActiveView.ScreenDisplay.DisplayTransformation.ToMapPoint(x, y);
-
-            Tower t = tm.GetNearestTower(pPoint, 30);
-
-            if (t == null)
+            try
             {
-                MessageBox.Show("No towers were found within the are you clicked");
-                return;
+                int x = arg.X;
+                int y = arg.Y;
+
+                IMxDocument pMxdoc = (IMxDocument)ArcMap.Application.Document;
+
+                IFeatureLayer pfeaturelayer = (IFeatureLayer)pMxdoc.ActiveView.FocusMap.Layer[0];
+                IDataset pDS = (IDataset)pfeaturelayer.FeatureClass;
+                TowerManager tm = new TowerManager(pDS.Workspace);
+
+                // THIS IS HOW YOU CREATE A POINT
+                IPoint pPoint = pMxdoc.ActiveView.ScreenDisplay.DisplayTransformation.ToMapPoint(x, y);
+
+                Tower t = tm.GetNearestTower(pPoint, 30);
+
+                if (t == null)
+                {
+                    MessageBox.Show("No towers were found within the are you clicked");
+                    return;
+                }
+
+                MessageBox.Show("Tower id " + t.ID + Environment.NewLine + "Type: " + t.TowerType + Environment.NewLine + "NetworkBand " + t.NetworkBand);
             }
-
-            MessageBox.Show("Tower id " + t.ID + Environment.NewLine + "Type: " + t.TowerType + Environment.NewLine + "NetworkBand " + t.NetworkBand);
-
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
     }
 

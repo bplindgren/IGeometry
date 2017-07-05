@@ -9,6 +9,11 @@ namespace Phonatech
 {
     public class Tower
     {
+        public Tower()
+        {
+            TowerCoverage = 100;
+        }
+
         public string ID { get; set; }
 
         public string TowerType { get; set; }
